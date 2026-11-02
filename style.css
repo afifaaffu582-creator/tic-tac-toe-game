@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #20233a;
+  background: linear-gradient(135deg, #dbeafe, #fce7f3);
+}
+
+.game-container {
+  width: min(100%, 440px);
+  padding: 30px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(40, 45, 90, 0.15);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 0 0 22px;
+  color: #69708a;
+  line-height: 1.5;
+}
+
+.status {
+  min-height: 28px;
+  margin-bottom: 16px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.cell {
+  border: 0;
+  border-radius: 14px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.cell:hover:enabled {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+.cell:focus-visible,
+.controls button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+.cell.player-o {
+  color: #db2777;
+}
+
+.cell.winner {
+  background: #bbf7d0;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.scoreboard div {
+  display: grid;
+  gap: 6px;
+  padding: 12px 5px;
+  background: #f8fafc;
+  border-radius: 12px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.scoreboard strong {
+  color: #20233a;
+  font-size: 1.4rem;
+}
+
+.player-x { color: #4f46e5; font-weight: 700; }
+.player-o { color: #db2777; font-weight: 700; }
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls button {
+  flex: 1;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary {
+  color: white;
+  background: #4f46e5;
+}
+
+.secondary {
+  color: #3730a3;
+  background: #e0e7ff;
+}
+
+.controls button:hover {
+  filter: brightness(0.96);
+}
+
+.footer {
+  margin: 22px 0 0;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 380px) {
+  .game-container { padding: 20px; }
+  .controls { flex-direction: column; }
+}
